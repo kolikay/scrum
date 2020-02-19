@@ -37,12 +37,12 @@
 
         <div class="form-group">
             <label>User Types</label>
-            <select required class="custom-select" name="type" [(ngModel)]='scrumUserModel.type'#type='ngModel'
-            [class.is-invalid]="type.invalid && type.touched">
+            <select required class="custom-select" name="usertype" [(ngModel)]='scrumUserModel.usertype'#usertype='ngModel'
+            [class.is-invalid]="usertype.invalid && usertype.touched">
             <option value=""></option>
             <option *ngFor='let type of userTypes'>{{ type }}</option></select>
-            <div *ngIf="type.errors && type.touched">
-                <small class="text-danger" *ngIf="type.errors.required && type.touched ">User Types is required</small>
+            <div *ngIf="usertype.errors && usertype.touched">
+                <small class="text-danger" *ngIf="usertype.errors.required && usertype.touched ">User Types is required</small>
             </div>
         
         

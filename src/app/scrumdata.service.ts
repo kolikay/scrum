@@ -11,7 +11,8 @@ export class ScrumdataService {
 
   constructor(private _http: HttpClient) { }
 
-  _url = 'https://liveapi.chatscrum.com/scrum/api/scrumusers/'
+  _url = 'https://liveapi.chatscrum.com/scrum/api/scrumusers/';
+  _loginUrl = 'https://liveapi.chatscrum.com/scrum/api-token-auth/';
 
   public httpOptions = {
     headers: new HttpHeaders({'content-Type':'application/json'})
@@ -20,5 +21,8 @@ export class ScrumdataService {
   signup(user: Scrumuser) {
     return this. _http.post<any>(this._url, {'email': user['email'], 'password':user['password'],
     'full_name':user['fullname'], 'usertype':user['usertype'],'projname':user['projname']}, this.httpOptions);
+  }
+  Login(user: Scrumuser) {
+    return this._http.post<any>(this._loginUrl, {'username': user['email'], 'password':user['password'],'project': user['projname']}, this.httpOptions);
   }
 }

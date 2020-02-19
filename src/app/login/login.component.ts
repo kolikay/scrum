@@ -1,5 +1,8 @@
+import { Scrumuser } from './../scrumuser';
+import { ScrumdataService } from './../scrumdata.service';
 import { Component, OnInit } from '@angular/core';
-import { Scrumuser } from '../scrumuser';
+
+
 
 @Component({
   selector: 'app-login',
@@ -8,11 +11,19 @@ import { Scrumuser } from '../scrumuser';
 })
 export class LoginComponent implements OnInit {
 
-  constructor() { }
+
+  scrumUserLoginData = new Scrumuser('','','','','');
+
+  constructor(private _scrumdataService: ScrumdataService) { }
 
   ngOnInit(): void {
   }
-  userTypes = ['reqular', 'project owner'];
-  scrumUserModel = new Scrumuser('','','','', '', '');
-}
+  onLoginSubmit(){
+    this._scrumdataService.Login(this.scrumUserLoginData).subscribe(
+      data =>console.log('success!', data),
+      error =>console.error('Error!', error)
+      )
+  }
+  }
+
 
