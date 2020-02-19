@@ -8,6 +8,7 @@ import { LoginComponent } from './login/login.component';
 import { FormsModule }    from '@angular/forms';
 import { HomepageComponent } from './homepage/homepage.component';
 import { ScrumboardComponent } from './scrumboard/scrumboard.component';
+import { AuthGuard } from './auth.guard';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,7 @@ import { ScrumboardComponent } from './scrumboard/scrumboard.component';
     FormsModule,
     AppRoutingModule
   ],
-  providers: [],
+  providers: [AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,3 +1,4 @@
+import { AuthGuard } from './auth.guard';
 import { HomepageComponent } from './homepage/homepage.component';
 import { NgModule, Component } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
@@ -10,7 +11,7 @@ const routes: Routes = [
   {path : 'home', component : HomepageComponent},
   {path : 'login', component : LoginComponent},
   {path : 'signup', component : SignupComponent},
-  {path : 'scrumboard', component : ScrumboardComponent},
+  {path : 'scrumboard', component : ScrumboardComponent, canActivate:[AuthGuard]},
 ]
 
 

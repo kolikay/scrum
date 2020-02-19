@@ -17,12 +17,19 @@ export class SignupComponent implements OnInit {
   }
   userTypes = ['reqular', 'project owner'];
   scrumUserModel = new Scrumuser('','','','','');
+  feedbk = '';
 
   onSubmit(){
     console.log(this.scrumUserModel);
     this._scrumdataService.signup(this.scrumUserModel).subscribe(
-      data =>console.log('success!', data),
-      error =>console.error('Error!', error)
+      data => {
+        console.log('success!', data)
+        this.feedbk = 'Account Created Succesfully'
+    },
+      error => {
+        console.error('Error', error)
+        this.feedbk = 'Signup Failled'
+      }
       )
   }
 }

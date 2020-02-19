@@ -25,4 +25,7 @@ export class ScrumdataService {
   Login(user: Scrumuser) {
     return this._http.post<any>(this._loginUrl, {'username': user['email'], 'password':user['password'],'project': user['projname']}, this.httpOptions);
   }
+  loggedin() {
+    return !!localStorage.getItem('token')
+  }
 }
