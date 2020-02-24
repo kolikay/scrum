@@ -9,6 +9,7 @@ import { FormsModule }    from '@angular/forms';
 import { HomepageComponent } from './homepage/homepage.component';
 import { ScrumboardComponent } from './scrumboard/scrumboard.component';
 import { AuthGuard } from './auth.guard';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { AuthGuard } from './auth.guard';
     BrowserModule,
     HttpClientModule,
     FormsModule,
-    AppRoutingModule
+    AppRoutingModule,
+    BrowserAnimationsModule
   ],
   providers: [AuthGuard],
   bootstrap: [AppComponent]
